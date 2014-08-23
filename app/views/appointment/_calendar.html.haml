@@ -1,0 +1,13 @@
+#calendar_holder
+
+  = render :partial => 'header'
+
+  -(1..@date.days_to_week_start).each do |i|
+    #day{day_num: "#{ i }" }
+
+  - counter = 7 - @date.days_to_week_start
+  -(@date.days_to_week_start..(@date.end_of_month.day + @date.days_to_week_start - 1)).each do |i|
+   
+    #day{day_num: "#{ i }" }
+      =i - @date.days_to_week_start + 1
+    

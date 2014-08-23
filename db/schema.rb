@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140823154415) do
+ActiveRecord::Schema.define(:version => 20140823164515) do
+
+  create_table "appointments", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "space_id"
+  end
+
+  create_table "spaces", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "description"
+    t.integer  "appointment_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "user_name"

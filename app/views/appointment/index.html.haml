@@ -1,0 +1,18 @@
+
+%main
+  =form_for 'appointment', { :url=> user_space_appointment_index_path(@user.id, @space.id),:method=> 'post' , :remote=>true, :html => {"data-type" => :json}} do |f|
+
+    %ul
+      %li
+        %select{id: 'state', name: 'state'}
+          %option{value: 1} Add
+          %option{value: 2} Remove
+      %li
+        %input{type: 'date' , id: 'start_date' ,name: 'start_date'}
+      %li
+        %input{type: 'date' , id: 'end_date', name: 'end_date'}
+      %li    
+        =f.submit 'Update calendar'
+
+
+  = render :partial => 'calendar'

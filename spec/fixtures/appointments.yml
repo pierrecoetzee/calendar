@@ -1,0 +1,9 @@
+user_1_space_1:
+  start_date: <%= Date.today %>
+  end_date: <%= Date.today.advance(:days => 5) %>  
+  space: user_one_space_1
+
+user_2_space_2:
+  start_date: <%= Date.today %>
+  end_date: <%= Date.today.advance(:days => 5) %>  
+  space: user_one_space_2 

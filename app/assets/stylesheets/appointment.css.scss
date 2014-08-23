@@ -1,0 +1,48 @@
+// Place all the styles related to the appointment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+li{
+	list-style-type:none;
+	float:left;
+	margin: 20px;
+}
+
+#calendar_holder{
+  width:750px;
+  height:auto;	
+  clear:both;
+  margin-left:60px;
+}
+
+#calendar_holder div{
+	width:90px;
+	height:90px;
+	float:left;
+	text-align: left;
+}
+
+header li{
+	float:left;
+	width:60px;
+  margin-left:10px;
+}
+
+#day{
+  float:left;
+  width:90px;
+  height:90px;
+  border: 1px solid black;
+  padding: 2px;
+  margin:0.5px;
+}
+
+.booked{
+  background:#CCC;
+}
+
+
+.end{
+  clear:both;
+}

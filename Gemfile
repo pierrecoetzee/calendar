@@ -42,14 +42,12 @@ group :assets do
   gem 'yui-compressor'
 end
 
-
 group :development, :test do
   gem 'thin'
   gem "rspec-rails", "~> 2.0"
   gem "capybara", '= 2.2.1'
   gem 'database_cleaner'
   gem 'headless'
-  # gem 'debugger'
 end
 
 group :test do

@@ -1,4 +1,16 @@
 Appearhere::Application.routes.draw do
+
+  match 'remove_appointments' => 'appointment#change_current', :as =>'change_current_appointments'
+
+  match 'get_bookings/space/:id' => 'appointment#get_bookings', defaults: {format: :json}
+
+  resources :user do
+    resources :space do
+      resources :appointment
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +60,7 @@ Appearhere::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'appointment#new'
 
   # See how all your routes lay out with "rake routes"
 
