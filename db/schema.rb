@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(:version => 20140823164515) do
   create_table "appointments", :force => true do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "space_id"
@@ -25,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20140823164515) do
   create_table "spaces", :force => true do |t|
     t.integer  "user_id"
     t.text     "description"
-    t.integer  "appointment_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.integer  "appointments_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|
