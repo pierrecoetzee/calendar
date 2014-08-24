@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :password, :user_name, :email
+  attr_accessible :password, :email
 
   has_many :spaces
 
