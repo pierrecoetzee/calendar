@@ -34,6 +34,9 @@ module Appearhere
     # config.i18n.default_locale = :de
     config.assets.initialize_on_precompile = false
 
+    config.assets.paths << Rails.root.join('app', 'assets')
+    config.assets.paths << Rails.root.join('vendor', 'assets')
+    
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 

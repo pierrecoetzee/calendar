@@ -1,8 +1,8 @@
 class AppointmentCalendar
   init: ->
     
-    getData()
-    $('input[type=date]').datepicker()
+    this.getData()
+    $('input[type=date]').datepicker({ dateFormat: 'dd/mm/yy' })
     
     default_action = $('form').attr 'action'
     action = ''
@@ -18,8 +18,8 @@ class AppointmentCalendar
         if start && end
           $('form').attr 'action', "/remove_appointments"
 
-  getData=() ->
-    url = '/get_bookings/space/887608180'
+  getData: ->
+    url = "/get_bookings/space/#{ $('#space_id').val()}"
     $.ajax({dataType: 'json', data : {}, url : url, success : (data) -> wireResults(data) })
 
   wireResults=(results) ->
@@ -30,9 +30,6 @@ class AppointmentCalendar
       
       $.each [daystart .. dayend], (i, item) ->
         $("[day_num=#{item}]").addClass 'booked'
-
-    
-
 
 @Appearhere = {} unless @Appearhere?
 @Appearhere.appointment_cal = new AppointmentCalendar()

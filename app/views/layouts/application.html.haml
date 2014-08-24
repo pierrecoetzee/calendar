@@ -12,4 +12,8 @@
     = csrf_meta_tags
   %body
     #wrapper
+      -if current_user
+        = render :partial => "/shared/user_nav"
+        
       =yield
+      = render :partial =>"/shared/warning"

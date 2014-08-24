@@ -17,16 +17,10 @@ gem 'bootstrap-x-editable-rails', '= 1.5.0'
 gem "jquery-ui-rails", "~> 4.0.0"
 gem "underscore-rails"
 
-gem 'execjs'
-
 gem 'coffee-script'
 
-gem 'liquid'
-
-gem 'dalli'
-
 gem 'colorize'
-gem 'newrelic_rpm'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

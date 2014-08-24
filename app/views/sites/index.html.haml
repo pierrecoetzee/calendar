@@ -1,0 +1,13 @@
+%h1 Manage your spaces
+
+%main
+  %table.table.table-striped
+    %thead
+      %tr
+      %tr
+
+    %tbody
+      -@sites.each do |space|
+        %tr
+          %td=space.description
+          %td= link_to 'Manage', user_space_appointment_index_path(current_user.id, space.id)

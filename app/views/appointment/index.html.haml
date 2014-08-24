@@ -1,8 +1,10 @@
-
 %main
-  =form_for 'appointment', { :url=> user_space_appointment_index_path(@user.id, @space.id),:method=> 'post' , :remote=>true, :html => {"data-type" => :json}} do |f|
 
+  
+  =form_for 'appointment', { :url=> user_space_appointment_index_path(@user.id, @space.id),:method=> 'post' , :remote=>true, :html => {"data-type" => :script, role: 'form'}} do |f|
+    
     %ul
+      %h2= @date
       %li
         %select{id: 'state', name: 'state'}
           %option{value: 1} Add
@@ -11,8 +13,9 @@
         %input{type: 'date' , id: 'start_date' ,name: 'start_date'}
       %li
         %input{type: 'date' , id: 'end_date', name: 'end_date'}
-      %li    
-        =f.submit 'Update calendar'
+      %li
+        %input{type: 'hidden', value: "#{ @space.id }", id: 'space_id'}
+        =f.submit 'Update calendar', class: 'btn btn-primary btn-sm'
 
 
   = render :partial => 'calendar'

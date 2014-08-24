@@ -21,6 +21,7 @@ li{
 	height:90px;
 	float:left;
 	text-align: left;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 
 header li{
@@ -33,7 +34,6 @@ header li{
   float:left;
   width:90px;
   height:90px;
-  border: 1px solid black;
   padding: 2px;
   margin:0.5px;
 }
@@ -41,7 +41,6 @@ header li{
 .booked{
   background:#CCC;
 }
-
 
 .end{
   clear:both;

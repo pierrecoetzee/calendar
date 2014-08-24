@@ -1,0 +1,7 @@
+%h1 Login
+
+.login-bar
+  =form_for 'user', {url: authenticate_path} do |f|
+    =f.text_field :email, placeholder: 'email address'
+    =f.text_field :password, placeholder: 'password', type: 'password'
+    =f.submit 'Login'

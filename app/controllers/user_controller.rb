@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  
   def index
   end
 
@@ -9,5 +10,9 @@ class UserController < ApplicationController
   end
 
   def destroy
+  end
+
+  def login
+
   end
 end
