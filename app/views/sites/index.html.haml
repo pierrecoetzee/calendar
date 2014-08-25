@@ -3,11 +3,13 @@
 %main
   %table.table.table-striped
     %thead
-      %tr
-      %tr
+      %td Name
+      %td Description
+      %td
 
     %tbody
       -@sites.each do |space|
         %tr
-          %td=space.description
+          %td= space.name
+          %td= space.description.present? ? "#{space.description[0..80]}..." : ''
           %td= link_to 'Manage', user_space_appointment_index_path(current_user.id, space.id)

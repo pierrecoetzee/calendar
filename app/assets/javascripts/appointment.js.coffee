@@ -1,22 +1,28 @@
 class AppointmentCalendar
   init: ->
     
+    $.ajaxSetup { cache: false }
+
     this.getData()
-    $('input[type=date]').datepicker({ dateFormat: 'dd/mm/yy' })
+    $('.tools input').datepicker({ dateFormat: 'dd/mm/yy' })
     
     default_action = $('form').attr 'action'
     action = ''
     method ='POST'
     
-    $('#state').change ()->
-      status = parseInt $(this).val()
+    $('#start_date, #end_date, #state').change ()->
+
+      status = parseInt $('#state').val()
       $('form').attr 'action', default_action
 
       if status == 2
+        
         start = $('#start_date').val()
         end = $('#end_date').val()
+
         if start && end
-          $('form').attr 'action', "/remove_appointments"
+          url = "/remove_appointments/site/#{ $('#space_id').val()}"
+          $('form').attr 'action', url
 
   getData: ->
     url = "/get_bookings/space/#{ $('#space_id').val()}"
@@ -24,6 +30,7 @@ class AppointmentCalendar
 
   wireResults=(results) ->
 
+    $('.day').removeClass 'booked';
     $.each results, (i, item) ->
       daystart = new Date(item.start_date).getDate()
       dayend   = new Date(item.end_date).getDate()

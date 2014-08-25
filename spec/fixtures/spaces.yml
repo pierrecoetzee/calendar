@@ -1,7 +1,49 @@
+
+user_one_space_3:
+  user: appearhere
+  name: Dover Street Gallery
+  slug: dover-street-gallery
+  description: Below Wolf and Badger Dover Street, this gallery retail unit is clean and can be designed to fit any brief.
+  weekly_price_pence: 411800
+
+user_one_space_4:
+  user: appearhere
+  name: Kings Road
+  slug: kings-road
+  description: An immaculate retail unit located on the Kings Road, Chelsea.
+  weekly_price_pence: 176500
+
+user_one_space_5:
+  user: appearhere
+  name: Shoreditch Gallery Space
+  slug: shoreditch-gallery-space
+  description: ''
+  weekly_price_pence: 117600
+
+user_one_space_6:
+  user: appearhere
+  name: 'Wilkes Street Warehouse '
+  slug: wilkes-street-warehouse
+  description: ''
+  weekly_price_pence: 176500
+
+user_one_space_7:
+  user: appearhere
+  name: Shoreditch Townhouse
+  slug: shoreditch-townhouse
+  description: A stones throw from Shoreditch High Street is this 4 storey townhouse with rooftop over the surrounding areas
+  weekly_price_pence: 300000
+
 user_one_space_1:
  user: pierrecoetzee
+ name: cupcake made by me
+ slug: some-slug
  description: crazy place for a muffin shop
+ weekly_price_pence: 120000 
 
 user_one_space_2: 
  user: pierrecoetzee
+ slug: some-slug 
+ name: muffins and tea
  description: Amazing views of selling gold!
+ weekly_price_pence: 100000 

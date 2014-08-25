@@ -23,10 +23,13 @@ ActiveRecord::Schema.define(:version => 20140823164515) do
 
   create_table "spaces", :force => true do |t|
     t.integer  "user_id"
+    t.string   "name"
+    t.string   "slug"
     t.text     "description"
+    t.decimal  "weekly_price_pence"
     t.integer  "appointments_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|

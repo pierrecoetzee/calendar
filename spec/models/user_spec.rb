@@ -5,7 +5,7 @@ describe User do
   describe 'create a new user' do
   	 
   	 before(:each){
-  	 	@user = User.new({ user_name: 'testing', password: 'testing' })
+  	 	@user = User.new({ email: 'testing@gmail.com', password: 'testing' })
   	 }
 
   	 it 'should create a user without an issue' do
@@ -13,7 +13,7 @@ describe User do
   	 end
 
   	 it 'should have public accessible attributes' do
-        [:user_name, :password].each{|attr_name|
+        [:email, :password].each{|attr_name|
     			@user.should respond_to attr_name
         }
   	 end

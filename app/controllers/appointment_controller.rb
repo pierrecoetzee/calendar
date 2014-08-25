@@ -17,8 +17,29 @@ class AppointmentController < ApplicationController
   end
 
   def change_current
+    
+    @space = Space.find(params[:site_id])
+    start_date = Date.parse(params[:start_date])
+    end_date   = Date.parse(params[:end_date])
+
+    appointments = @space.appointments.where('start_date <= ? and end_date >= ?', start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")  )
+
+    if appointments.any?
+
+      app = appointments.first
+      range = app.split_appointment({start_date: start_date, end_date: end_date })
+
+      app.delete
+
+      if range.any?
+         @space.appointments.build( range )
+         @space.save
+      end
+    end
+    
+
     respond_to do |format|
-      format.json{ render json: Appointment.last.to_json  }
+      format.js{ render :js => "Appearhere.appointment_cal.getData()"}
     end
   end
 
@@ -26,7 +47,10 @@ class AppointmentController < ApplicationController
 
     @space =  Space.find(params[:id])
     @appointments = @space.appointments
-    render :json => @appointments.to_json
+    
+    respond_to do |format|
+      format.json{ render :json => @appointments }
+    end
 
   end
 
@@ -52,7 +76,7 @@ class AppointmentController < ApplicationController
 	      @appointment = @space.appointments.build({start_date: @start, end_date: @end}) 
         @appointment.save
       else
-        @error << 'already saved'
+        @error << 'Another booking inside this range exist, please change your selection.'
       end
 
     else

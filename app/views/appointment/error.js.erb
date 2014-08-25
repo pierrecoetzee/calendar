@@ -1,1 +1,9 @@
 $('#mymodel').modal('show')
+
+$('#mymodel').on('shown',function(){
+  $('#mymodel .modal-body').text('<%= @error.join %>')	
+})
+
+
+
+

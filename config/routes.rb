@@ -6,7 +6,7 @@ Appearhere::Application.routes.draw do
   match 'login' => 'login#index', :as => 'login_page'
   match 'authenticate' => 'login#authenticate', :as => 'authenticate'
 
-  match 'remove_appointments' => 'appointment#change_current', :as =>'change_current_appointments'
+  match 'remove_appointments/site/:site_id' => 'appointment#change_current', :as =>'change_current_appointments'
 
   match 'get_bookings/space/:id' => 'appointment#get_bookings', defaults: {format: :json}
 
@@ -17,6 +17,6 @@ Appearhere::Application.routes.draw do
   end
 
 
-  root :to => 'appointment#new'
+  root :to => 'sites#index'
 
 end

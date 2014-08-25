@@ -3,11 +3,11 @@
   = render :partial => 'header'
 
   -(1..@date.days_to_week_start).each do |i|
-    #day{:class=> "#{ i.eql?(1) ? 'end' : '' }" }
+    .day.pevmonth{:class=> "#{ i.eql?(1) ? 'end' : '' }" }
 
   - counter = 7 - @date.days_to_week_start
   -(1..(@date.end_of_month.day)).each do |d|
    
-    #day{day_num: "#{ d }" }
+    .day{day_num: "#{ d }" }
       =d
     
