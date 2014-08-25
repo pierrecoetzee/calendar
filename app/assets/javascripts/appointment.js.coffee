@@ -4,7 +4,7 @@ class AppointmentCalendar
     $.ajaxSetup { cache: false }
 
     this.getData()
-    $('.tools input').datepicker({ dateFormat: 'dd/mm/yy' })
+    $('#start_date, #end_date').datepicker({ dateFormat: 'dd/mm/yy' })
     
     default_action = $('form').attr 'action'
     action = ''
