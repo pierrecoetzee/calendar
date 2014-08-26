@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe LoginController do
 
-  describe "GET 'def'" do
-    it "returns http success" do
-      get 'def'
-      response.should be_success
-    end
-  end
+  fixtures :all
+
+  before(:each){
+    @user = users(:appearhere)
+    session[:user_id] = @user.id
+  }
 
   describe "GET 'index'" do
     it "returns http success" do
@@ -17,9 +17,9 @@ describe LoginController do
   end
 
   describe "GET 'authenticate'" do
-    it "returns http success" do
-      get 'authenticate'
-      response.should be_success
+    it "redirects a logged in user to the management page" do
+      get :authenticate, "user"=>{"email"=>@user.email, "password"=> @user.password}
+      response.should redirect_to(:space_index)
     end
   end
 

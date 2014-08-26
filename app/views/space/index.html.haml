@@ -8,7 +8,7 @@
       %td
 
     %tbody
-      -@sites.each do |space|
+      -@spaces.each do |space|
         %tr
           %td= space.name
           %td= space.description.present? ? "#{space.description[0..80]}..." : ''

@@ -2,10 +2,6 @@ class Appointment < ActiveRecord::Base
 	
   attr_accessible :end_date, :start_date, :status, :space_id
 
-
-
-
-
   belongs_to :space
 
   validates_presence_of :space_id
@@ -24,14 +20,15 @@ class Appointment < ActiveRecord::Base
 
   	  if start_date < removal_range[:start_date] && end_date > removal_range[:end_date]
             
-            ranges << {start_date: start_date, end_date:   removal_range[:start_date].advance(:days=> - 1)}
+          ranges << {start_date: start_date, end_date:   removal_range[:start_date].advance(:days=> - 1)}
 
-            ranges << {start_date: removal_range[:end_date].advance(:days=>1), end_date: end_date }   
+          ranges << {start_date: removal_range[:end_date].advance(:days=>1), end_date: end_date }   
 
       else
 
       	  ranges << {start_date: removal_range[:end_date].advance(:days => 1), end_date: end_date }  if start_date == removal_range[:start_date]
-      	  ranges << {start_date: start_date, end_date: removal_range[:end_date].advance(:days=> -1 ) }  if end_date == removal_range[:end_date]
+      	 
+          ranges << {start_date: start_date, end_date: removal_range[:end_date].advance(:days=> -1 ) }  if end_date == removal_range[:end_date]
       	 
       end
 

@@ -4,6 +4,13 @@ describe Appointment do
   
   fixtures [:users, :spaces, :appointments]
 
+  describe 'methods of appointments' do
+    it 'can return the day range of the instance' do
+       appointment = Appointment.last
+       appointment.respond_to?(:day_range).should be_truthy
+    end
+  end
+
   describe 'creating an appointment' do  	
 
   	it 'should always be for a space' do

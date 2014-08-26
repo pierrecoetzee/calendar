@@ -13,7 +13,7 @@ class LoginController < ApplicationController
      respond_to do |format|
      	 if user
      	   session[:user_id] = user.id
-     	   format.html{ redirect_to sites_index_path }
+     	   format.html{ redirect_to space_index_path }
        else
           format.html{ redirect_to logout_page_path }
        end

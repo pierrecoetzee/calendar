@@ -21,7 +21,7 @@ class AppointmentCalendar
         end = $('#end_date').val()
 
         if start && end
-          url = "/remove_appointments/site/#{ $('#space_id').val()}"
+          url = "/remove_appointments/space/#{ $('#space_id').val()}"
           $('form').attr 'action', url
 
   getData: ->

@@ -2,7 +2,7 @@
 
   %ul.breadcrumb
     %li
-      %a{href: sites_index_path } Admin
+      %a{href: space_index_path } Admin
     %li
       %a{href: '#' }="> #{@space.name}"
     %li > Availability      
@@ -26,3 +26,5 @@
 
 
   = render :partial => 'calendar'
+
+= javascript_include_tag 'appointment'  
