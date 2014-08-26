@@ -1,5 +1,7 @@
 class AppointmentCalendar
   init: ->
+
+    return if window.location.toString().indexOf('appointment') < 0
     
     $.ajaxSetup { cache: false }
 
