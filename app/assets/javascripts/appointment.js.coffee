@@ -27,6 +27,8 @@ class AppointmentCalendar
           $('form').attr 'action', url
 
   getData: ->
+    
+    $('.day.booked').tooltip('destroy')
     url = "/get_bookings/space/#{ $('#space_id').val()}"
     $.ajax({dataType: 'json', data : {}, url : url, success : (data) -> wireResults(data) })
 
@@ -37,9 +39,18 @@ class AppointmentCalendar
       daystart = new Date(item.start_date).getDate()
       dayend   = new Date(item.end_date).getDate()
       
-      $.each [daystart .. dayend], (i, item) ->
-        $("[day_num=#{item}]").addClass 'booked'
+      $.each [daystart .. dayend], (i, obj) ->
+        $("[day_num=#{obj}]").addClass 'booked'
+        $("[day_num=#{obj}]").attr 'title', "space booked from #{item.start_date} to #{item.end_date}"
+        $("[day_num=#{obj}]").tooltip({})
+
+      $(".day.booked").tooltip 'show'
 
 @Appearhere = {} unless @Appearhere?
 @Appearhere.appointment_cal = new AppointmentCalendar()
 $(document).ready -> Appearhere.appointment_cal.init()
+
+
+
+
+

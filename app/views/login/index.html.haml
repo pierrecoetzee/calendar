@@ -1,6 +1,6 @@
-
-.span9.login-bar
+.span6.login-bar
   =form_for 'user', {url: authenticate_path} do |f|
     =f.text_field :email, placeholder: 'email address'
     =f.text_field :password, placeholder: 'password', type: 'password'
     =f.submit 'Login', class: 'btn btn-primary'
+

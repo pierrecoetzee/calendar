@@ -1,13 +1,16 @@
 #calendar_holder
 
-  = render :partial => 'header'
+  %section
+    = render :partial => 'header'
 
-  -(1..@date.days_to_week_start).each do |i|
-    .day.pevmonth{:class=> "#{ i.eql?(1) ? 'end' : '' }" }
+  %section
+    -(@date..@date.advance(:days=> @date.days_to_week_start - 1)).each do |i|
+      .day.pevmonth
 
-  - counter = 7 - @date.days_to_week_start
-  -(1..(@date.end_of_month.day)).each do |d|
-   
-    .day{day_num: "#{ d }" }
-      =d
+    - @cal_start = @date
+
+    -(@cal_start..@date.end_of_month).each do |d|
+
+      .day{day_num: "#{d.day}", class: "#{ wday_class(d) }", 'data-toggle'=>'tooltip', 'data-placement'=>'top', tooltip: 'ok' }
+        =  d.day
     

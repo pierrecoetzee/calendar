@@ -17,9 +17,9 @@
           %option{value: 1} Add
           %option{value: 2} Remove
       %li
-        %input{id: 'start_date' ,name: 'start_date', value: "#{@date.strftime("%d/%m/%Y")}"}
+        %input{id: 'start_date' ,name: 'start_date', type: 'search', value: "#{@date.strftime("%d/%m/%Y")}"}
       %li
-        %input{id: 'end_date', name: 'end_date', value: "#{@date.end_of_month.strftime("%d/%m/%Y")}"}
+        %input{id: 'end_date', name: 'end_date', type: 'search', value: "#{@date.end_of_month.strftime("%d/%m/%Y")}"}
       %li
         %input{type: 'hidden', value: "#{ @space.id }", id: 'space_id'}
         =f.submit 'Update calendar', class: 'btn btn-primary btn-sm'

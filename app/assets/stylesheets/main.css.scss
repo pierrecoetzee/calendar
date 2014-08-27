@@ -1,7 +1,7 @@
 body,html{
   height: 100%;
   font-size: 100%; 
-  background:none;
+  font-family: Verdana,Geneva,Arial,Helvetica,sans-serif;
 }
 
 input{
@@ -9,6 +9,7 @@ input{
 }
 
 main{
+
   clear:both;
   margin: 40px 10%;
 
@@ -19,7 +20,20 @@ main{
   form ul.tools li{
     margin:5px;    
   }
+  .content{
+    margin-top: 20px;
+  }
 } 
+
+.logo{
+  h5{
+    font-size:16px;
+  }
+}
+
+.table{
+  font-size:13px;
+}
 
 #content{
   height: 81%;
@@ -43,17 +57,21 @@ main{
   overflow: none;
 }
 
-.navbar{
-  
-  ul{
-    float:right;
-  }
+//navigation
+.breadcrumb li{
+  margin:2px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
 }
 
+.logo{
+  
+}
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
   background-color: white;
-  height:30px;
+  height:20px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }

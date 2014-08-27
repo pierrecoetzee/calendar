@@ -5,4 +5,10 @@ module AppointmentHelper
         nil
 	end
 
+	def wday_class(week_day)
+		if week_day.is_a?(Date)
+			return 'end' if week_day.wday.eql? 1
+		end
+	end
+
 end

@@ -2,8 +2,14 @@
   %ul.nav.nav-pills.header-nav
     %div.navbar.navbar-fixed-top
       .navbar-inner
-        .container
-          .nav
+        .container.logo
+          .nav.pull-left
+            %ul 
+              %li 
+                %h5
+                  [Appearhere]
+
+          .nav.pull-right
             %ul.nav
               %li
-                %a{:href=>logout_page_path} Logout
+                %a{:href=>logout_page_path} logout
