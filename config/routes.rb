@@ -9,6 +9,8 @@ Appearhere::Application.routes.draw do
   match 'remove_appointments/space/:space_id' => 'appointment#change_current', :as =>'change_current_appointments'
 
   match 'get_bookings/space/:id' => 'appointment#get_bookings', defaults: {format: :json}
+  match 'calendar_move_to/space/:id/:date' => 'appointment#move_date', :as =>"calendar_movement"
+
 
   resources :user do
     resources :space do

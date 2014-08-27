@@ -2,7 +2,7 @@
 
   %section
     = render :partial => 'header'
-
+    
   %section
     -(@date..@date.advance(:days=> @date.days_to_week_start - 1)).each do |i|
       .day.pevmonth

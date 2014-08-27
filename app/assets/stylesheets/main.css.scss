@@ -75,3 +75,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
 }
+
+.login-bar{
+    input{
+      height:30px;
+    }
+}

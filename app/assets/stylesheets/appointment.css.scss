@@ -23,7 +23,7 @@ li{
 
 #calendar_holder{
   font-size:13px;
-  width:750px;
+  width:700px;
   height:auto;	
   clear:both;
   margin-left:60px;
@@ -39,8 +39,8 @@ li{
 
 header li{
 	float:left;
-	width:65px;
-  margin-left:10px;
+	width:60px;
+  margin-left:6px;
 }
 
 .day{
@@ -62,4 +62,15 @@ header li{
 
 .end{
   clear:both;
+}
+
+.cal_left{
+    left: -20px;
+    position: relative;
+    top: 20px;
+}
+.cal_right{
+    position: relative;
+    right: 30px;
+    top: 20px;
 }

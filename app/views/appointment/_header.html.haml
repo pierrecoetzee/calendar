@@ -1,5 +1,9 @@
 %header
+  
+  =link_to '<<',calendar_movement_path(@space.id,@date.advance(:months => -1)), remote: true, class: 'btn cal_left btn-info btn-sm pull-left'
   %ul
     -['Mon','Tue','Wed','Thu','Fri','Sat', 'Sun'].each_with_index do |weekday, i|
       %li
         = weekday 
+  
+  =link_to '>>',calendar_movement_path(@space.id,@date.advance(:months => 1)), remote: true, class: 'btn cal_right btn-info btn-sm pull-right'

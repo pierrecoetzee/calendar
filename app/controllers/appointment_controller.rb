@@ -12,8 +12,19 @@ class AppointmentController < ApplicationController
      @date = Date.today.beginning_of_month
   	 @user = current_user
   	 @space = Space.find(params[:space_id])
-  	 @appointment = @space.appointments
     
+  end
+
+  def move_date
+
+    @user = current_user
+    @date = Date.parse params[:date]
+    @space = Space.find params[:id]
+    @appointments = @space.appointments
+    
+    respond_to do |format|
+      format.js{render :action => "movement", :layout=>false}
+    end
   end
 
   def change_current
@@ -23,7 +34,7 @@ class AppointmentController < ApplicationController
     end_date   = Date.parse(params[:end_date])
     @range = []
 
-    appointments = space.appointments.where('start_date <= ? and end_date >= ?', start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d")  )
+    appointments = space.appointments.where('start_date <= ? and end_date >= ?', start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d") )    
 
     if appointments.any?
 
@@ -45,7 +56,9 @@ class AppointmentController < ApplicationController
   def get_bookings
 
     @space =  Space.find(params[:id])
-    @appointments = @space.appointments
+    start_date = Date.parse(params[:date]).beginning_of_month
+    end_date   = Date.parse(params[:date]).end_of_month
+    @appointments = @space.appointments.where('start_date >= ? and end_date <= ?', start_date.strftime("%Y-%m-%d"), end_date.strftime("%Y-%m-%d") )    
     
     respond_to do |format|
       format.json{ render :json => @appointments }

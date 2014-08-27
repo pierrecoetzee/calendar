@@ -7,23 +7,6 @@
       %a{href: '#' }="> #{@space.name}"
     %li > Availability      
 
-
-  =form_for 'appointment', { :url=> user_space_appointment_index_path(@user.id, @space.id),:method=> 'post' , :remote=>true, :html => {"data-type" => :script, role: 'form'}} do |f|
-    
-    %ul.tools
-      
-      %li
-        %select{id: 'state', name: 'state'}
-          %option{value: 1} Add
-          %option{value: 2} Remove
-      %li
-        %input{id: 'start_date' ,name: 'start_date', type: 'search', value: "#{@date.strftime("%d/%m/%Y")}"}
-      %li
-        %input{id: 'end_date', name: 'end_date', type: 'search', value: "#{@date.end_of_month.strftime("%d/%m/%Y")}"}
-      %li
-        %input{type: 'hidden', value: "#{ @space.id }", id: 'space_id'}
-        =f.submit 'Update calendar', class: 'btn btn-primary btn-sm'
-
-
-  = render :partial => 'calendar'
+  .calendar_form
+    =render :partial => 'form'
  

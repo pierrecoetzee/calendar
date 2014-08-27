@@ -7,7 +7,7 @@ class AppointmentCalendar
 
     this.getData()
     $('#start_date, #end_date').datepicker({ dateFormat: 'dd/mm/yy' })
-    
+
     default_action = $('form').attr 'action'
     action = ''
     method ='POST'
@@ -26,11 +26,12 @@ class AppointmentCalendar
           url = "/remove_appointments/space/#{ $('#space_id').val()}"
           $('form').attr 'action', url
 
+
   getData: ->
-    
-    $('.day.booked').tooltip('destroy')
+    $('.day.booked').removeClass('.booked')
+
     url = "/get_bookings/space/#{ $('#space_id').val()}"
-    $.ajax({dataType: 'json', data : {}, url : url, success : (data) -> wireResults(data) })
+    $.ajax({dataType: 'json', data : {date: $('#start_date').val() }, url : url, success : (data) -> wireResults(data) })
 
   wireResults=(results) ->
 
@@ -42,9 +43,6 @@ class AppointmentCalendar
       $.each [daystart .. dayend], (i, obj) ->
         $("[day_num=#{obj}]").addClass 'booked'
         $("[day_num=#{obj}]").attr 'title', "space booked from #{item.start_date} to #{item.end_date}"
-        $("[day_num=#{obj}]").tooltip({})
-
-      $(".day.booked").tooltip 'show'
 
 @Appearhere = {} unless @Appearhere?
 @Appearhere.appointment_cal = new AppointmentCalendar()
