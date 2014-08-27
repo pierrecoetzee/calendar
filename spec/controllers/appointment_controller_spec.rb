@@ -29,14 +29,17 @@ describe AppointmentController do
         response.should be_success
         assigns(:date).should == Date.today.beginning_of_month
         assigns(:user).should eq(@user)
-        assigns(:appointment).should == @space.appointments
       end
 
     end
 
     describe 'in order to judge the available dates quickly' do
       it 'should show a spaces available dates' do
-        xhr :get, :get_bookings, {id: @space.id}
+        xhr :get, :get_bookings, {
+            id: @space.id,
+            date: Date.today
+        }
+
         JSON.parse(response.body).should == JSON.parse(@space.appointments.to_json)
       end
     end
@@ -47,9 +50,11 @@ describe AppointmentController do
         appointment_to_change = @space.appointments.last
 
         expect{
-           xhr :post, :change_current, {space_id: @space.id,
-                  start_date: appointment_to_change.start_date.advance(:days =>2),
-                  end_date:  appointment_to_change.end_date.advance(:days => -2)}
+           xhr :post, :change_current, 
+                  { space_id: @space.id,
+                    start_date: Date.today.beginning_of_month.advance(:days=> 10),
+                    end_date:  Date.today.beginning_of_month.advance(:days=> 20)
+                  }
            assigns(:range).length.should == 2
         }.to change{@space.appointments.count}.by 1                                                         
 

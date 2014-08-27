@@ -1,6 +1,6 @@
 user_1_space_1:
-  start_date: <%= Date.today %>
-  end_date: <%= Date.today.advance(:days => 5) %>  
+  start_date: <%= Date.today.beginning_of_month %>
+  end_date: <%= Date.today.end_of_month %>  
   space: user_one_space_1
 
 user_2_space_2:

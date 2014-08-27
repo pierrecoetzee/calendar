@@ -18,7 +18,8 @@ describe "appointment/create.html.haml" do
   		
   		page.should have_content('Below Wolf and Badger')
   		page.all('a')[1].trigger 'click'
-  		find('#calendar_holder').should_not be_falsy
+
+  		find('.calendar_form').should_not be_falsy
 
   		all(".day.booked").size.should == 0
 
@@ -26,8 +27,9 @@ describe "appointment/create.html.haml" do
   		fill_in 'end_date', with: Date.today.end_of_month.strftime("%d/%m/%Y")
   		click_button 'Update calendar'
 
-  		sleep 5.seconds
- 		all('.day.booked').length.should == Date.today.end_of_month.day
+  		sleep 3.seconds
+ 		  all('.day.booked').size.should == Date.today.end_of_month.day
+
   	end
   end
 end

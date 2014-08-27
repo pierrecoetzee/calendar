@@ -6,7 +6,7 @@ class Appointment < ActiveRecord::Base
 
   validates_presence_of :space_id
 
-  validates_uniqueness_of :start_date, scope: [:start_date, :end_date] 
+  validates_uniqueness_of :start_date, scope: [:start_date, :end_date, :space_id] 
 
   def day_range
   	{start_date: start_date, end_date: end_date }
